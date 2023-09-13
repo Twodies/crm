@@ -1,0 +1,108 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+android {
+    compileSdk 32
+
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    defaultConfig {
+        applicationId "tm.payhas.crm"
+        minSdk 26
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation "com.squareup:kotlinpoet:1.12.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata:2.2.0"
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.9.0' // Use the latest version
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.android.volley:volley:1.2.0'
+    implementation 'androidx.databinding:databinding-runtime:8.0.2'
+    implementation 'androidx.biometric:biometric:1.1.0'
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //rounded image view
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    //websocket
+    implementation 'dev.gustavoavila:java-android-websocket-client:2.0.2'
+
+    //Room Database
+    implementation "androidx.room:room-runtime:2.4.0"
+    annotationProcessor "androidx.room:room-compiler:2.4.0"
+
+    //Material
+    implementation 'com.google.android.material:material:1.1.0-beta01'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:3.5.2'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    //Slider
+    implementation 'com.r0adkll:slidableactivity:2.1.0'
+
+
+    implementation 'com.google.android:support-v4:r7'
+
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.8.1'
+
+    // room
+    implementation "androidx.room:room-runtime:2.4.2"
+    annotationProcessor "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-rxjava2:2.4.2"
+    implementation "androidx.room:room-guava:2.4.2"
+    // fcm messaging
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+    implementation(platform("com.google.firebase:firebase-bom:32.2.0"))
+
+    // Add the dependencies for the In-App Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-inappmessaging-display")
+    implementation("com.google.firebase:firebase-analytics")
+
+    //PhotoView
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    //Progress Animation
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //lottyfiles
+    implementation 'com.airbnb.android:lottie:5.2.0'
+
+
+}

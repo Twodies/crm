@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.view.fragment.FragmentContacts">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="tm.payhas.crm.presentation.viewModel.ViewModelUser" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/search_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginVertical="7dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/ic_search_normal"
+                    tools:ignore="ContentDescription" />
+
+                <EditText
+                    android:id="@+id/search_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/color_transparent"
+                    android:gravity="center_vertical"
+                    android:hint="@string/search"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingVertical="7.5dp"
+                    android:textColor="@color/text_color"
+                    android:textColorHint="@color/hint_color"
+                    tools:ignore="Autofill" />
+
+                <ImageView
+                    android:id="@+id/search_cancel"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="3dp"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_close_cirlce"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription" />
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_group_contact"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</layout>
+
+
+
