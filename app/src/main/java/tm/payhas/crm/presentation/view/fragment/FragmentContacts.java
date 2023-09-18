@@ -1,6 +1,7 @@
 package tm.payhas.crm.presentation.view.fragment;
 
 import static tm.payhas.crm.domain.helpers.StaticMethods.hideSoftKeyboard;
+import static tm.payhas.crm.domain.helpers.StaticMethods.setBackgroundDrawable;
 
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
@@ -61,8 +62,13 @@ public class FragmentContacts extends Fragment implements NetworkChangeListener 
         getPrivateContacts();
         setRecycler();
         initListeners();
+        setBackground();
         setNetworkObserver();
         return b.getRoot();
+    }
+
+    private void setBackground() {
+        setBackgroundDrawable(getContext(), b.searchBox, R.color.color_transparent, R.color.primary, 6, false, 1);
     }
 
     private void setNetworkObserver() {
