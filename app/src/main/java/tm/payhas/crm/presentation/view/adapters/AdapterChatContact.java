@@ -186,13 +186,18 @@ public class AdapterChatContact extends RecyclerView.Adapter<AdapterChatContact.
         private void setInfoGroup(EntityGroup group) {
             Picasso.get().load(BASE_PHOTO + group.getAvatar()).placeholder(R.color.primary).into(contactImage);
             contactName.setText(group.getName());
-            contactChatTime.setText(normalTime(group.getMessageRoom().getCreatedAtRoom()));
-            contactChat.setText(String.valueOf(group.getMessageRoom().getRoom().getCount().getParticipants()) + " participants");
-            if (group.getMessageRoom().getRoom().getCount().getMessages() == 0) {
-                contactChatCount.setVisibility(View.GONE);
-            } else {
-                contactChatCount.setVisibility(View.VISIBLE);
-                contactChatCount.setText(String.valueOf(group.getMessageRoom().getRoom().getCount().getMessages()));
+            try{
+                contactChat.setText(String.valueOf(group.getMessageRoom().getRoom().getCount().getParticipants()) + " participants");
+            }catch (Exception e){
+                Log.e("TIME", "setInfoGroup: "+e );
+            }
+            if(group.getMessageRoom()!=null){
+                if (group.getMessageRoom().getRoom().getCount().getMessages() == 0) {
+                    contactChatCount.setVisibility(View.GONE);
+                } else {
+                    contactChatCount.setVisibility(View.VISIBLE);
+                    contactChatCount.setText(String.valueOf(group.getMessageRoom().getRoom().getCount().getMessages()));
+                }
             }
         }
     }

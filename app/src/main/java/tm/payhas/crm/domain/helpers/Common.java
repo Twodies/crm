@@ -134,7 +134,7 @@ public class Common {
             // Add 5 hours to the date
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
-            calendar.add(Calendar.HOUR_OF_DAY, 5); // Adding 5 hours
+            calendar.add(Calendar.HOUR_OF_DAY, 0); // Adding 5 hours
             date = calendar.getTime();
 
             String stringDate = new SimpleDateFormat("dd/MM/yyyy", turkmenistanLocale).format(date);
@@ -146,6 +146,8 @@ public class Common {
         }
         return finalDateTime; // Return the combined date and time
     }
+
+
 
     public static String humanReadableDate(String dateGiven) {
         String initialStringDate = dateGiven;
@@ -159,7 +161,7 @@ public class Common {
             // Add 5 hours to the date
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
-            calendar.add(Calendar.HOUR_OF_DAY, 5); // Adding 5 hours
+            calendar.add(Calendar.HOUR_OF_DAY, 0); // Adding 5 hours
             date = calendar.getTime();
 
             Calendar currentDate = Calendar.getInstance();
@@ -217,7 +219,7 @@ public class Common {
             // Add 5 hours to the date
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
-            calendar.add(Calendar.HOUR_OF_DAY, 5); // Adding 5 hours
+            calendar.add(Calendar.HOUR_OF_DAY, 0); // Adding 5 hours
             date = calendar.getTime();
 
             String stringDate = new SimpleDateFormat("dd/MM/yyyy", turkmenistanLocale).format(date);

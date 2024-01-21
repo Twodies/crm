@@ -71,7 +71,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_bg"
                         android:fontFamily="@font/inter_regular"
-                        android:hint="Write..."
+                        android:hint="..."
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="15.5dp"
                         android:textColor="@color/text_color"
@@ -115,7 +115,7 @@
                             android:fontFamily="@font/inter_regular"
                             android:gravity="center_vertical"
                             android:paddingHorizontal="10dp"
-                            android:text="Select Project"
+                            android:text="@string/select_project"
                             android:textColor="@color/text_color"
                             android:textColorHint="@color/edt_hint"
                             android:textSize="12sp" />

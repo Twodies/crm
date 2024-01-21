@@ -14,7 +14,7 @@
         android:layout_marginHorizontal="22dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/inter_regular"
-        android:text="New Folder"
+        android:text="@string/new_folder"
         android:textColor="@color/text_color"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:background="@color/color_transparent"
             android:fontFamily="@font/inter_regular"
-            android:hint="write"
+            android:hint="..."
             android:padding="10dp" />
 
         <com.makeramen.roundedimageview.RoundedImageView
@@ -181,7 +181,7 @@
             android:focusable="true"
             android:fontFamily="@font/rubik_regular"
             android:padding="13sp"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:textColor="@color/error_color"
             android:textSize="13sp"
             android:textStyle="bold" />

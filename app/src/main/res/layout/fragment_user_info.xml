@@ -102,7 +102,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="6dp"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="Name"
+                                android:text="@string/name"
                                 android:textColor="@color/text_color"
                                 android:textSize="12sp" />
 
@@ -132,7 +132,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="6dp"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="Surname"
+                                android:text="@string/surname"
                                 android:textColor="@color/text_color"
                                 android:textSize="12sp" />
 
@@ -162,7 +162,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="6dp"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="Birthday"
+                                android:text="@string/birthday"
                                 android:textColor="@color/text_color"
                                 android:textSize="12sp" />
 
@@ -192,7 +192,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="6dp"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="Email adress"
+                                android:text="@string/email_adress"
                                 android:textColor="@color/text_color"
                                 android:textSize="12sp" />
 
@@ -222,7 +222,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="6dp"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="Phone number"
+                                android:text="@string/phone_number"
                                 android:textColor="@color/text_color"
                                 android:textSize="12sp" />
 

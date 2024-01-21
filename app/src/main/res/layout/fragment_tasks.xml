@@ -28,10 +28,10 @@
 
         <LinearLayout
             android:id="@+id/main"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
 
             <androidx.cardview.widget.CardView
@@ -51,7 +51,7 @@
                         android:layout_marginVertical="14sp"
                         android:layout_marginStart="20dp"
                         android:fontFamily="@font/inter_regular"
-                        android:text="FILTERS"
+                        android:text="@string/filter"
                         android:textColor="@color/text_color"
                         android:textStyle="bold" />
 

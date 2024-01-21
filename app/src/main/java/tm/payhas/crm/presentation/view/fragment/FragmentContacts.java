@@ -72,12 +72,12 @@ public class FragmentContacts extends Fragment implements NetworkChangeListener 
     }
 
     private void setNetworkObserver() {
-        connectivityUtil = new NetworkConnectivityUtil(getContext(), this);
+        connectivityUtil = new NetworkConnectivityUtil(requireContext(), this);
     }
 
 
     private void setViewModel() {
-        viewModelUser = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication()).create(ViewModelUser.class);
+        viewModelUser = ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().getApplication()).create(ViewModelUser.class);
         b.setViewModel(viewModelUser);
         b.setLifecycleOwner(this);
     }
@@ -100,9 +100,8 @@ public class FragmentContacts extends Fragment implements NetworkChangeListener 
         }
     }
 
-
     private void initListeners() {
-        b.recGroupContact.setOnClickListener(view -> hideSoftKeyboard(getActivity()));
+        b.searchCancel.setOnClickListener(view -> b.searchInput.setText(""));
         b.searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -111,6 +110,11 @@ public class FragmentContacts extends Fragment implements NetworkChangeListener 
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (b.searchInput.getText().length() > 0) {
+                    b.searchCancel.setVisibility(View.VISIBLE);
+                } else {
+                    b.searchCancel.setVisibility(View.GONE);
+                }
                 viewModelUser.setSearchText(b.searchInput.getText().toString());
             }
 
@@ -119,6 +123,7 @@ public class FragmentContacts extends Fragment implements NetworkChangeListener 
 
             }
         });
+        b.recGroupContact.setOnClickListener(view -> hideSoftKeyboard(getActivity()));
     }
 
     private void setRecycler() {

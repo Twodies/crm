@@ -17,6 +17,11 @@ import androidx.fragment.app.Fragment;
 
 import com.google.gson.JsonObject;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,8 +59,7 @@ public class FragmentLogin extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentLoginBinding.inflate(inflater);
         accountPreferences = new AccountPreferences(getContext());
         hideSoftKeyboard(getActivity());
@@ -126,12 +130,67 @@ public class FragmentLogin extends Fragment {
                     getActivity().finish();
                     Intent intent = new Intent(getContext(), ActivityMain.class);
                     startActivity(intent);
+                } else if (response.code() == 400) {
+                    if (response.errorBody() != null)
+                        StaticMethods.showToast(getActivity(), "Telefon belgisi ýa-da açar sözi nädogry");
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (response.code() == 401) {
+                    if (response.errorBody() != null) try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        StaticMethods.showToast(getActivity(), "Unauthorised");
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (response.code() == 404) {
+                    StaticMethods.showToast(getActivity(), "Phone number is Invalid");
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        StaticMethods.showToast(getActivity(), "Phone number is Invalid");
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (response.code() == 409) {
+                    StaticMethods.showToast(getActivity(), "Server error");
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        StaticMethods.showToast(getActivity(), "Server error");
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (response.code() == 446) {
+                    StaticMethods.showToast(getActivity(), "Server error");
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        StaticMethods.showToast(getActivity(), "Long data error");
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (response.code() == 500) {
+                    StaticMethods.showToast(getActivity(), "Server error");
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        StaticMethods.showToast(getActivity(), "Something went wrong");
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (response.code() == 501) {
+                    StaticMethods.showToast(getActivity(), "Server error");
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        StaticMethods.showToast(getActivity(), "Invalid otp");
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseSignIn> call, Throwable t) {
-
+                StaticMethods.showToast(getActivity(), "Server error");
             }
         });
     }

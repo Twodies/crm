@@ -4,13 +4,13 @@
     <string name="home">Главная страница</string>
     <string name="birthdays">Дни рождения</string>
     <string name="holidays">Праздники</string>
-    <string name="title_name">Названия</string>
+    <string name="title_name">Название</string>
     <string name="start_time">Дата начала</string>
     <string name="end_time">Дата завершения</string>
     <string name="executors">Участники</string>
-    <string name="save">Сохронить</string>
+    <string name="save">Сохранить</string>
     <string name="new_checklist">Добавить чеклист</string>
-    <string name="add_news">Добавить новости</string>
+    <string name="add_news">Добавить новость</string>
     <string name="news_type">Тип</string>
     <string name="about">Описание</string>
     <string name="date">Дата</string>
@@ -23,8 +23,8 @@
     <string name="new_task">Добавление задачи</string>
     <string name="importancy">Приоритет</string>
     <string name="observers">Наблюдатели</string>
-    <string name="remind">Напомнить</string>
-    <string name="date_remind">Дата напоминании</string>
+    <string name="remind">Запомнить</string>
+    <string name="date_remind">Дата напоминания</string>
     <string name="cloud_folder">Oблачный диск</string>
     <string name="cloud_file">Файлы</string>
     <string name="add_comments">Добавить комментарий</string>
@@ -34,7 +34,7 @@
     <string name="group_name">Название группы</string>
     <string name="group">Группы</string>
     <string name="group_member">Участники</string>
-    <string name="username">Имя пользователь</string>
+    <string name="username">Имя пользователя</string>
     <string name="password">Пароль</string>
     <string name="login">Войти</string>
     <string name="project_details">Oбзор Проекта</string>
@@ -65,4 +65,18 @@
     <string name="medium">Средний</string>
     <string name="high">Высокий</string>
     <string name="neotlozhnyy">Неотложный</string>
+    <string name="filter">Фильтры</string>
+    <string name="cancel">Oтмена</string>
+    <string name="select_all">Выбрать все</string>
+    <string name="new_folder"> Новая папка</string>
+    <string name="delete">Удалить</string>
+    <string name="are_u_sure">Вы действительно хотите удалить?</string>
+    <string name="select_project">Выберите проект</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="birthday">Дата рождения </string>
+    <string name="email_adress">Адрес эл.почты</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="new_group">Новая группа</string>
+
 </resources>

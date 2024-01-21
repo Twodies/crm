@@ -29,6 +29,7 @@ public class RepositoryGroup {
     private final Context context;
     public LiveData<List<EntityGroup>> allGroups;
     private final String TAG = "Repository_group";
+
     public RepositoryGroup(Context context) {
         this.context = context;
         MessagesDatabase messagesDatabase = MessagesDatabase.getInstance(context);
@@ -67,7 +68,11 @@ public class RepositoryGroup {
 
         LiveData<List<EntityGroup>> sortedGroupsLiveData = Transformations.map(allGroupsLiveData, allGroups -> {
             if (allGroups != null) {
-                Collections.sort(allGroups, (group1, group2) -> group2.getMessageRoom().getCreatedAtRoom().compareTo(group1.getMessageRoom().getCreatedAtRoom()));
+                try {
+                    Collections.sort(allGroups, (group1, group2) -> group2.getMessageRoom().getCreatedAtRoom().compareTo(group1.getMessageRoom().getCreatedAtRoom()));
+                } catch (Exception e) {
+                    Log.e(TAG, "getGroupsSorted: " + e);
+                }
             }
             return allGroups;
         });

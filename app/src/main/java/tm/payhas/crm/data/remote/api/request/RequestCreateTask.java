@@ -12,7 +12,7 @@ public class RequestCreateTask {
     private Integer authorId = null;
     private String priority;
     private String status = "notStarted";
-    private Integer projectId;
+    private Integer projectId = 0;
     private String reminderType;
     private ArrayList<String> remindAt;
     private String startsAt;

@@ -8,6 +8,7 @@ public class Network {
 //    public static String BASE_PHOTO = "http://119.235.116.10.8080/";
 //    public static String BASE_URL = "http://192.168.1.101:8080";
 
+
     //Local
 //    public static String BASE_URL = "http://192.168.1.65:8080";
 //    public static String BASE_PHOTO = "http://192.168.1.65:8080/";
@@ -24,7 +25,12 @@ public class Network {
 //    public static String BASE_URL_SOCKET = "ws://guncha.com.tm:8088//?token=";
 
     //ARCHALYK
-    public static String BASE_URL = "http://119.235.116.10:8080";
-    public static String BASE_PHOTO = "http://119.235.116.10:8080/";
-    public static String BASE_URL_SOCKET = "ws://119.235.116.10:443//?token=";
+//    public static String BASE_URL = "http://119.235.116.10:8080";
+//    public static String BASE_PHOTO = "http://119.235.116.10:8080/";
+//    public static String BASE_URL_SOCKET = "ws://119.235.116.10:443//?token=";
+
+    public static String BASE_URL = "http://119.235.121.50:8080";
+    public static String BASE_PHOTO = "http://119.235.121.50:8080/";
+    public static String BASE_URL_SOCKET = "ws://119.235.121.50:8088//?token=";
+
 }

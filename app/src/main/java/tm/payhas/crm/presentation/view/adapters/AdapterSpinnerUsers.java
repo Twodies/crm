@@ -1,5 +1,6 @@
 package tm.payhas.crm.presentation.view.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -176,8 +177,9 @@ public class AdapterSpinnerUsers extends RecyclerView.Adapter<AdapterSpinnerUser
             });
         }
 
+        @SuppressLint("SetTextI18n")
         private void setUserInfo(EntityUserInfo one) {
-            userName.setText(one.getPersonalData().getName());
+            userName.setText(one.getPersonalData().getName() + " "+ one.getPersonalData().getLastName());
         }
 
         public void bindSingle(EntityUserInfo oneUser) {

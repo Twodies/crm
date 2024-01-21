@@ -1,5 +1,6 @@
 package tm.payhas.crm.presentation.view.fragment;
 
+import static tm.payhas.crm.domain.helpers.LanguageManager.LANG_TK;
 import static tm.payhas.crm.domain.helpers.StaticMethods.setBackgroundDrawable;
 import static tm.payhas.crm.domain.helpers.StaticMethods.setPadding;
 import static tm.payhas.crm.domain.helpers.StaticMethods.statusBarHeight;
@@ -30,6 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import tm.payhas.crm.R;
 import tm.payhas.crm.databinding.FragmentAddNewsBinding;
+import tm.payhas.crm.domain.helpers.LanguageManager;
 import tm.payhas.crm.presentation.view.adapters.AdapterAddImage;
 import tm.payhas.crm.domain.model.DataImages;
 import tm.payhas.crm.data.remote.api.request.RequestNews;
@@ -60,8 +62,7 @@ public class FragmentAddNews extends Fragment implements UploadedFilesUrl {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentAddNewsBinding.inflate(inflater);
         setRecycler();
         setSelector();
@@ -90,7 +91,12 @@ public class FragmentAddNews extends Fragment implements UploadedFilesUrl {
     }
 
     private void setSpinner() {
-        String[] types = getResources().getStringArray(R.array.dashboard_type);
+        String[] types;
+        if (LanguageManager.newInstance(getContext()).getLanguage().equals(LANG_TK)) {
+            types = getResources().getStringArray(R.array.dashboard_type_tk);
+        } else {
+            types = getResources().getStringArray(R.array.dashboard_type);
+        }
         ArrayAdapter adapterType = new ArrayAdapter(getContext(), R.layout.item_spinner, types);
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         b.spinnerType.setAdapter(adapterType);
@@ -105,9 +111,11 @@ public class FragmentAddNews extends Fragment implements UploadedFilesUrl {
                 String selected = adapterView.getItemAtPosition(i).toString();
                 switch (selected) {
                     case "Tazelik":
+                    case "Новость":
                         typeNews = NEWS;
                         break;
                     case "Bayramcylyk":
+                    case "Праздник":
                         typeNews = HOLIDAYS;
                         break;
                 }
@@ -246,11 +254,7 @@ public class FragmentAddNews extends Fragment implements UploadedFilesUrl {
     @Override
     public void onResume() {
         super.onResume();
-        new Handler().postDelayed(() -> setPadding(b.main,
-                0,
-                statusBarHeight,
-                0,
-                0), 100);
+        new Handler().postDelayed(() -> setPadding(b.main, 0, statusBarHeight, 0, 0), 100);
     }
 
     @Override

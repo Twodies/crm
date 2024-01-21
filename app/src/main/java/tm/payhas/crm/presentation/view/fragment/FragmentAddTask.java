@@ -1,5 +1,6 @@
 package tm.payhas.crm.presentation.view.fragment;
 
+import static tm.payhas.crm.domain.helpers.LanguageManager.LANG_TK;
 import static tm.payhas.crm.presentation.view.activity.ActivityMain.mainFragmentManager;
 import static tm.payhas.crm.domain.helpers.Common.addFragment;
 import static tm.payhas.crm.domain.helpers.Common.normalDate;
@@ -69,6 +70,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tm.payhas.crm.R;
+import tm.payhas.crm.domain.helpers.LanguageManager;
 import tm.payhas.crm.presentation.view.adapters.AdapterSelectedUsers;
 import tm.payhas.crm.data.localdb.entity.EntityUserInfo;
 import tm.payhas.crm.data.remote.api.request.RequestCreateTask;
@@ -128,11 +130,7 @@ public class FragmentAddTask extends Fragment implements AddTask {
     @Override
     public void onResume() {
         super.onResume();
-        new Handler().postDelayed(() -> setPadding(b.mainContent,
-                0,
-                50,
-                0,
-                0), 100);
+        new Handler().postDelayed(() -> setPadding(b.mainContent, 0, 50, 0, 0), 100);
     }
 
     @Override
@@ -142,8 +140,7 @@ public class FragmentAddTask extends Fragment implements AddTask {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = tm.payhas.crm.databinding.FragmentAddTaskBinding.inflate(inflater);
         accountPreferences = new AccountPreferences(getContext());
         hideSoftKeyboard(getActivity());
@@ -318,9 +315,20 @@ public class FragmentAddTask extends Fragment implements AddTask {
 
     private void setUpSpinners() {
         b.spinnerTaskStatus.setVisibility(View.GONE);
-        String[] statuses = getResources().getStringArray(R.array.status);
-        String[] importancy = getResources().getStringArray(R.array.importancy);
-        String[] reminderType = getResources().getStringArray(R.array.reminder_type);
+        String[] statuses;
+        String[] importancy;
+        String[] reminderType;
+
+        if (LanguageManager.newInstance(getContext()).getLanguage().equals(LANG_TK)) {
+            statuses = getResources().getStringArray(R.array.status_tk);
+            reminderType = getResources().getStringArray(R.array.reminder_type_tk);
+            importancy = getResources().getStringArray(R.array.importancy_tk);
+        } else {
+            statuses = getResources().getStringArray(R.array.status);
+            importancy = getResources().getStringArray(R.array.importancy);
+            reminderType = getResources().getStringArray(R.array.reminder_type);
+        }
+
         adapterReminderType = new ArrayAdapter<>(getContext(), R.layout.item_spinner, reminderType);
         adapterStatus = new ArrayAdapter<>(getContext(), R.layout.item_spinner, statuses);
         adapterImportancy = new ArrayAdapter<>(getContext(), R.layout.item_spinner, importancy);
@@ -386,14 +394,17 @@ public class FragmentAddTask extends Fragment implements AddTask {
                 String toSend;
                 switch (selected) {
                     case "Автор":
+                    case "Awtor":
                         toSend = "author";
                         reminderTypeToSend = toSend;
                         break;
                     case "Наблюдатели":
+                    case "Synçylar":
                         toSend = "observerUsers";
                         reminderTypeToSend = toSend;
                         break;
                     case "Ответственные":
+                    case "Jogapkärler":
                         toSend = "responsibleUsers";
                         reminderTypeToSend = toSend;
                         break;
@@ -413,14 +424,17 @@ public class FragmentAddTask extends Fragment implements AddTask {
                 String toSend;
                 switch (selected) {
                     case "Не начата":
+                    case "Başlanmadyk":
                         toSend = NOT_STARTED;
                         taskStatusToSend = toSend;
                         break;
                     case "В процессе":
+                    case "Prosesde":
                         toSend = IN_PROCESS;
                         taskStatusToSend = toSend;
                         break;
                     case "Завершенo":
+                    case "Tamamlanan":
                         toSend = FINISHED;
                         taskStatusToSend = toSend;
                         break;
@@ -442,18 +456,22 @@ public class FragmentAddTask extends Fragment implements AddTask {
                 String toSend;
                 switch (selected) {
                     case "Низкий":
+                    case "Pes":
                         toSend = PRIMARY;
                         importancyToSend = toSend;
                         break;
                     case "Средний":
+                    case "Ortaça":
                         toSend = MEDIUM;
                         importancyToSend = toSend;
                         break;
                     case "Высокий":
+                    case "Möhüm":
                         toSend = HIGH;
                         importancyToSend = toSend;
                         break;
                     case "Неотложный":
+                    case "Örän möhüm":
                         toSend = NOT_IMPORTANT;
                         importancyToSend = toSend;
                         break;
@@ -594,9 +612,7 @@ public class FragmentAddTask extends Fragment implements AddTask {
 
     private void uploadFile(File file) {
         MultipartBody.Part fileToUpload = null;
-        RequestBody requestFile = RequestBody.create(
-                MediaType.parse(FileUtil.getMimeType(file)),
-                file);
+        RequestBody requestFile = RequestBody.create(MediaType.parse(FileUtil.getMimeType(file)), file);
         try {
             fileToUpload = MultipartBody.Part.createFormData("fileUrl", URLEncoder.encode(file.getPath(), "utf-8"), requestFile);
         } catch (UnsupportedEncodingException e) {
@@ -608,8 +624,7 @@ public class FragmentAddTask extends Fragment implements AddTask {
         Call<ResponseSingleFile> upload = Common.getApi().uploadFileToTask(originalFileName, fileToUpload);
         upload.enqueue(new Callback<ResponseSingleFile>() {
             @Override
-            public void onResponse
-                    (@NonNull Call<ResponseSingleFile> call, @NonNull Response<ResponseSingleFile> response) {
+            public void onResponse(@NonNull Call<ResponseSingleFile> call, @NonNull Response<ResponseSingleFile> response) {
                 if (response.isSuccessful()) {
                     b.progressAddFile.setVisibility(View.GONE);
                     b.fileMain.setVisibility(View.VISIBLE);
@@ -705,8 +720,7 @@ public class FragmentAddTask extends Fragment implements AddTask {
     }
 
     private void requestStoragePermission() {
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
-                == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             // Permission has already been granted, you can access the file here
             // Perform your file access operations
         } else {
@@ -715,16 +729,15 @@ public class FragmentAddTask extends Fragment implements AddTask {
         }
     }
 
-    private ActivityResultLauncher<String> requestPermissionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-                if (isGranted) {
-                    // Permission is granted, you can access the file here
-                    // Perform your file access operations
-                } else {
-                    // Permission is denied, handle the failure
-                    // Display an error message or request the permission again
-                }
-            });
+    private ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+        if (isGranted) {
+            // Permission is granted, you can access the file here
+            // Perform your file access operations
+        } else {
+            // Permission is denied, handle the failure
+            // Display an error message or request the permission again
+        }
+    });
 
     @Override
     public void selectedProjectId(DataProject oneProject) {
@@ -736,7 +749,7 @@ public class FragmentAddTask extends Fragment implements AddTask {
 
     @Override
     public void setExecutor(EntityUserInfo user) {
-        b.taskExecutor.setText(String.format("%s %s" ,user.getPersonalData().getName(), user.getPersonalData().getSurname()));
+        b.taskExecutor.setText(String.format("%s %s", user.getPersonalData().getName(), user.getPersonalData().getSurname()));
         executorId = user.getId();
         buttonActivity();
     }

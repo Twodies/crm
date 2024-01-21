@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/inter_regular"
-        android:text="Удалить?"
+        android:text="@string/delete"
         android:textColor="@color/text_color"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:fontFamily="@font/inter_regular"
-        android:text="Вы действительно хотите удалить? "
+        android:text="@string/are_u_sure"
         android:textColor="@color/text_color"
         android:textSize="15sp"
         android:textStyle="bold" />
@@ -47,7 +47,7 @@
             android:focusable="true"
             android:fontFamily="@font/rubik_regular"
             android:padding="13sp"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:textColor="@color/error_color"
             android:textSize="13sp"
             android:textStyle="bold" />

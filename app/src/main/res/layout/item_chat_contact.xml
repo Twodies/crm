@@ -98,17 +98,17 @@
                 android:layout_marginVertical="6dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="vertical"
-                tools:ignore="UselessLeaf">
+                >
 
                 <TextView
                     android:id="@+id/contact_time"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/inter_regular"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:maxLines="1"
-                    android:text="9:42"
+                    android:text=""
                     android:textColor="@color/secondary_text_color"
                     android:textSize="12sp"
                     tools:ignore="HardcodedText" />
@@ -121,11 +121,11 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/bg_radius_50"
                     android:fontFamily="@font/inter_regular"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:maxLines="1"
                     android:paddingHorizontal="4dp"
                     android:paddingVertical="2dp"
-                    android:text="9"
+                    android:text="1588484"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     android:visibility="gone"

@@ -152,7 +152,6 @@ public class FragmentChatRoom extends Fragment implements ChatRoomInterface {
     public void onPause() {
         super.onPause();
         BADGE.setVisible(false);
-        // Unregister the DownloadReceiver when the activity goes into the background
         adapterSingleChat.chatMenu.unregisterDownloadReceiver();
     }
 
@@ -196,8 +195,11 @@ public class FragmentChatRoom extends Fragment implements ChatRoomInterface {
 //    }
 
     private void setDateObserver() {
-        viewModelChatRoom.getCurrentMessagesDate().observe(getViewLifecycleOwner(), newDate -> b.chatDate.setText(newDate));
-    }
+        viewModelChatRoom.getCurrentMessagesDate().observe(getViewLifecycleOwner(), s -> {
+            b.chatDate.setVisibility(VISIBLE);
+            b.chatDate.setText(s);
+        });
+}
 
     private void setReplyObserver() {
         viewModelChatRoom.getIsReplyLiveData().observe(getViewLifecycleOwner(), isReply -> {

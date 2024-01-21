@@ -76,7 +76,7 @@ public class FragmentProfile extends Fragment implements PasswordInterface {
     }
 
     private void setInfo() {
-        b.name.setText(accountPreferences.getUserName() + "  " + accountPreferences.getPrefSurname());
+        b.name.setText(accountPreferences.getUserName() + "  " + accountPreferences.getPrefLastname());
         b.phoneNumber.setText(accountPreferences.getPhoneNumber());
     }
 

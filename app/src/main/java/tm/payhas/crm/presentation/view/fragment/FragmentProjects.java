@@ -1,6 +1,7 @@
 package tm.payhas.crm.presentation.view.fragment;
 
 import static android.view.Gravity.CENTER;
+import static tm.payhas.crm.domain.helpers.LanguageManager.LANG_TK;
 import static tm.payhas.crm.presentation.view.activity.ActivityMain.mainFragmentManager;
 import static tm.payhas.crm.domain.helpers.Common.addFragment;
 import static tm.payhas.crm.domain.helpers.Common.getApi;
@@ -28,6 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import tm.payhas.crm.R;
 import tm.payhas.crm.databinding.FragmentProjectsBinding;
+import tm.payhas.crm.domain.helpers.LanguageManager;
 import tm.payhas.crm.presentation.view.adapters.AdapterFilter;
 import tm.payhas.crm.presentation.view.adapters.AdapterProjects;
 import tm.payhas.crm.data.remote.api.request.RequestMyProjects;
@@ -143,21 +145,26 @@ public class FragmentProjects extends Fragment {
             adapterFilter.notifyDataSetChanged();
             // Change the button text based on the selection state
             if (allSelected) {
-                selectDeselectText.setText("Select All");
+                if (LanguageManager.newInstance(getContext()).getLanguage().equals(LANG_TK)){
+                    selectDeselectText.setText("Hemmesini saýla");
+                }else{
+                    selectDeselectText.setText("Выбрать все");
+                }
+
             } else {
-                selectDeselectText.setText("Deselect All");
-            }// Update the RecyclerView
+                if (LanguageManager.newInstance(getContext()).getLanguage().equals(LANG_TK)){
+                    selectDeselectText.setText("Hemmesini aýyr");
+                }
+                selectDeselectText.setText("Снять все");
+            }
         });
 
 
-        done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                b.swipe.setRefreshing(true);
-                selectedVarianceItems = adapterFilter.getSelectedArray();
-                getProjects();
-                dialog.dismiss();
-            }
+        done.setOnClickListener(view -> {
+            b.swipe.setRefreshing(true);
+            selectedVarianceItems = adapterFilter.getSelectedArray();
+            getProjects();
+            dialog.dismiss();
         });
 
 

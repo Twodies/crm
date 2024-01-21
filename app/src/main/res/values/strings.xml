@@ -8,10 +8,24 @@
         <item>Высокий</item>
         <item>Неотложный</item>
     </string-array>
+
+    <string-array name="importancy_tk">
+        <item>Pes</item>
+        <item>Ortaça</item>
+        <item>Möhüm</item>
+        <item>Örän möhüm</item>
+    </string-array>
+
     <string-array name="status">
         <item>Не начата</item>
         <item>В процессе</item>
         <item>Завершенo</item>
+    </string-array>
+
+    <string-array name="status_tk">
+        <item>Başlanmadyk</item>
+        <item>Prosesde</item>
+        <item>Tamamlanan</item>
     </string-array>
 
     <string-array name="reminder_type">
@@ -20,10 +34,22 @@
         <item>Автор</item>
     </string-array>
 
-    <string-array name="dashboard_type">
-        <item>Tazelik</item>
-        <item>Bayramcylyk</item>
+    <string-array name="reminder_type_tk">
+        <item>Jogapkärler</item>
+        <item>Synçylar</item>
+        <item>Awtor</item>
     </string-array>
+
+    <string-array name="dashboard_type">
+        <item>Новость</item>
+        <item>Праздник</item>
+    </string-array>
+
+    <string-array name="dashboard_type_tk">
+        <item>Täzelik</item>
+        <item>Baýramçylyk</item>
+    </string-array>
+
     <string-array name="languages">
         <item>Pусский язык</item>
         <item>Türkmen Dili</item>
@@ -93,4 +119,18 @@
     <string name="medium">Ortacha</string>
     <string name="high">Yokary</string>
     <string name="neotlozhnyy">Mohum</string>
+    <string name="filter">FILTER</string>
+    <string name="select_all">Hemmesini saýla</string>
+    <string name="new_folder">Täze bukja</string>
+    <string name="cancel">Ýatyrmak</string>
+    <string name="delete">Aýyrmak</string>
+    <string name="are_u_sure">Siz çyndan dowam etmekçimi?</string>
+    <string name="select_project">Proýekt saýlaň</string>
+    <string name="name">Ady</string>
+    <string name="surname">Familiýasy</string>
+    <string name="birthday">Doglan güni</string>
+    <string name="email_adress">E-poçta salgysy</string>
+    <string name="phone_number">Telefon nomeri</string>
+    <string name="new_group">Täze topar</string>
+
 </resources>

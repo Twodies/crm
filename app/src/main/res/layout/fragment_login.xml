@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="@string/hello_blank_fragment"
+            android:text="Lemmer"
             android:textColor="@color/primary"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -141,7 +141,8 @@
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/remind"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
